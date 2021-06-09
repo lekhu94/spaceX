@@ -1,18 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BaselayoutModule } from './baselayout/baselayout.module';
+import { UserServices } from './services/user.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    BaselayoutModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

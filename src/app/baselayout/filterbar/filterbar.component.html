@@ -1,0 +1,29 @@
+<div class="filter-wrapper">
+  <h3>Filters</h3>
+  <h5>Launch Year</h5>
+  <ul>
+    <li *ngFor="let year of years">
+        <span [ngClass]="{'active':selectedYear == year}" (click)="filter('year', year)">{{year}}</span>
+    </li>
+  </ul>
+
+  <h5>Successful Launch</h5>
+  <ul>
+    <li>
+        <span [ngClass]="{'active':selectedLaunch == 'true'}" (click)="filter('launch', 'true')">True</span>
+    </li>
+    <li>
+        <span [ngClass]="{'active':selectedLaunch == 'false'}" (click)="filter('launch', 'false')">False</span>
+    </li>
+  </ul>
+
+  <h5>Successful Landing</h5>
+  <ul>
+    <li>
+        <span [ngClass]="{'active':selectedLanding == 'true'}" (click)="filter('land', 'true')">True</span>
+    </li>
+    <li>
+        <span [ngClass]="{'active':selectedLanding == 'false'}" (click)="filter('land', 'false')">False</span>
+    </li>
+  </ul>
+</div>

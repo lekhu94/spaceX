@@ -1,0 +1,21 @@
+<div class="row launches-list" *ngIf="!loading">
+  <div class="col-3" *ngFor="let launch of launchesData">
+    <div class="item">
+        <div class="thumbnail">
+          <img [src]="launch?.links?.mission_patch" alt="">
+        </div>
+        <h4>{{launch?.mission_name}}</h4>
+        <h5 class="m-0">Mission Ids <span *ngIf="launch?.mission_id.length==0">: N/A</span></h5>
+        <ul *ngIf="launch?.mission_id.length>0">
+          <li *ngFor="let id of launch.mission_id">{{id}}</li>
+        </ul>
+        <h5 class="m-0">Launch Year : <span class="color-blue">{{launch?.launch_year}}</span></h5>
+        <h5 class="m-0">Successful Launch : <span class="color-blue">{{launch?.launch_success}}</span></h5>
+        <h5 class="m-0">Successful Landing : <span class="color-blue">{{launch?.land_success ? 'True' : 'False'}}</span></h5>
+    </div>
+  </div>
+</div>
+<div class="loading" *ngIf="loading">
+  Loading...
+</div>
+<div class="nodata" *ngIf="(launchesData && launchesData.length < 1) && !loading">No Data Found</div>
